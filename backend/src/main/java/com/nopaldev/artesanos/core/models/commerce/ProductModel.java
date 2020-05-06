@@ -20,11 +20,22 @@ public class ProductModel extends BaseModel {
     @ManyToMany
     private List<CategoryModel> categories;
 
+    @OneToMany
+    private List<StockModel> stocks;
+
     @ManyToMany
     private List<LabelModel> labels;
 
     @OneToMany
     private List<ImageModel> images;
+
+    public List<StockModel> getStocks() {
+        return stocks;
+    }
+
+    public void setStocks(List<StockModel> stocks) {
+        this.stocks = stocks;
+    }
 
     public String getName() {
         return name;

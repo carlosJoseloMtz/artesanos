@@ -11,7 +11,7 @@ import org.springframework.util.Assert;
 
 import java.util.List;
 
-@Service
+@Service("productService")
 public class DefaultProductService implements ProductService {
 
     private final ProductRepository productRepository;

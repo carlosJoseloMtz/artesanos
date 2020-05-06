@@ -1,9 +1,6 @@
-package com.nopaldev.artesanos.core.models.users;
+package com.nopaldev.artesanos.core.services.dtos;
 
-import javax.persistence.Entity;
-
-@Entity
-public class CraftsmanModel extends UserModel {
+public class CompanyRegistrationDTO extends UserRegistrationDTO {
     private String companyName;
 
     public String getCompanyName() {

@@ -7,6 +7,10 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class UserModel extends BaseModel {
 
+    private boolean enabled;
+
+    private String validationToken;
+
     private String username;
 
     private String password;
@@ -14,6 +18,22 @@ public class UserModel extends BaseModel {
     private String name;
 
     private String lastName;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getValidationToken() {
+        return validationToken;
+    }
+
+    public void setValidationToken(String validationToken) {
+        this.validationToken = validationToken;
+    }
 
     public String getUsername() {
         return username;

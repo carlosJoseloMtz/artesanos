@@ -12,7 +12,7 @@ import org.springframework.util.Assert;
 import java.util.Collection;
 
 
-@Component
+@Component("productFacade")
 public class DefaultProductFacade implements ProductFacade {
 
     private final ProductService productService;

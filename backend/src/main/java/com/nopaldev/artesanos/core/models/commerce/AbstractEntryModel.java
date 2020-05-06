@@ -9,6 +9,8 @@ import javax.persistence.MappedSuperclass;
 public class AbstractEntryModel extends BaseModel {
     private Double basePrice;
     private Double totalPrice;
+    private Long quantity;
+
     @ManyToOne
     private ProductModel product;
 
@@ -34,5 +36,13 @@ public class AbstractEntryModel extends BaseModel {
 
     public void setProduct(ProductModel product) {
         this.product = product;
+    }
+
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 }

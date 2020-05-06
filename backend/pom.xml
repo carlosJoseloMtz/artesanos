@@ -63,4 +63,17 @@
         </plugins>
     </build>
 
+    <profiles>
+
+        <!-- local environment development -->
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.activate>local</spring.profiles.activate>
+            </properties>
+        </profile>
+    </profiles>
 </project>
