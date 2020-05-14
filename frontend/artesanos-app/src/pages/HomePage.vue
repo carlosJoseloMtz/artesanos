@@ -5,16 +5,20 @@
     <NopalButton text="Quiero Comprar"/>
     <br/>
     <NopalButton text="Soy artesano"/>
+    <NopalInput label="Label input" value="123"/>
+
   </div>
 </template>
 
 <script>
 import NopalButton from '../components/NopalButton.vue'
+import NopalInput from '../components/NopalInput.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    NopalButton
+    NopalButton,
+    NopalInput
   }
 }
 </script>
