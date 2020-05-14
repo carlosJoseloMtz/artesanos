@@ -5,7 +5,7 @@
     <NopalButton text="Quiero Comprar"/>
     <br/>
     <NopalButton text="Soy artesano"/>
-    <NopalInput label="Label input" value="123"/>
+    <NopalInput label="Nombre de artesano" value="123" placeholder="Perenganito Perez Gomez"/>
 
   </div>
 </template>
