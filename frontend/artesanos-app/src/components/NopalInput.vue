@@ -1,6 +1,6 @@
 <template>
   <div class="nopal-input">
-    <i class="one">ico</i>
+    <i class="mi mi-face"></i>
     <div class="two">
       <label :for="_uid">{{label}}</label>
       <input
@@ -52,6 +52,7 @@ export default {
 <style scoped lang="scss">
 // import variables
 @import '../styles/_variables.scss';
+@import '~material-icons/css/material-icons.scss';
 
 @mixin transition($args...) {
     -webkit-transition: $args;
@@ -73,6 +74,9 @@ export default {
   margin: 0 auto;
   text-align: left;
   width: 99%;
+  i{
+    margin-right: 3px;
+  }
   label {
     width: 100%;
     font-size: 0.7em;

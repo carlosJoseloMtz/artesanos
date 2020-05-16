@@ -3,8 +3,9 @@
     <img />
     <h1>logotipo</h1>
     <NopalButton text="Quiero Comprar"/>
-    <br/>
+    <br/><br/>
     <NopalButton text="Soy artesano"/>
+    <br/>
     <NopalInput label="Nombre de artesano" value="123" placeholder="Perenganito Perez Gomez"/>
 
   </div>
