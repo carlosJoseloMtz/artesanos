@@ -1,6 +1,6 @@
 <template>
   <div class="nopal-input">
-    <i class="mi mi-face"></i>
+    <i class="material-icons">cloud_upload</i>
     <div class="two">
       <label :for="_uid">{{label}}</label>
       <input
@@ -52,7 +52,7 @@ export default {
 <style scoped lang="scss">
 // import variables
 @import '../styles/_variables.scss';
-@import '~material-icons/css/material-icons.scss';
+@import '~material-design-icons/iconfont/material-icons.css';
 
 @mixin transition($args...) {
     -webkit-transition: $args;
@@ -60,6 +60,16 @@ export default {
     -ms-transition: $args;
     -o-transition: $args;
     transition: $args;
+  }
+
+  @mixin avoid_textselection($args...) {
+    -webkit-touch-callout: $args; /* iOS Safari */
+    -webkit-user-select: $args; /* Safari */
+     -khtml-user-select: $args; /* Konqueror HTML */
+       -moz-user-select: $args; /* Firefox */
+        -ms-user-select: $args; /* Internet Explorer/Edge */
+            user-select: $args; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
   }
   .one{
     margin-right:10px;
@@ -75,6 +85,7 @@ export default {
   text-align: left;
   width: 99%;
   i{
+    @include avoid_textselection(none);
     margin-right: 3px;
   }
   label {
