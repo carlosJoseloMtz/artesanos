@@ -42,6 +42,7 @@ public class DefaultCompanyRegistrationService implements CompanyRegistrationSer
     protected CraftsmanModel mapModel(final CompanyRegistrationDTO dto) {
         final var model = new CraftsmanModel();
         model.setName(dto.getName());
+        model.setLastName(dto.getLastName());
         model.setCompanyName(dto.getCompanyName());
         model.setUsername(dto.getEmail());
         // TODO: hash the password

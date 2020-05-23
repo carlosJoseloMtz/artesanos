@@ -2,7 +2,9 @@ package com.nopaldev.artesanos.core.models.users;
 
 import com.nopaldev.artesanos.core.models.BaseModel;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -16,6 +18,7 @@ public class UserModel extends BaseModel {
     private Date lastTimeGeneratedToken;
 
     @NotNull
+    @Column(name = "username", unique = true)
     private String username;
 
     @NotNull
