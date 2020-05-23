@@ -1,9 +1,10 @@
-package com.nopaldev.artesanos.facades.dtos;
+package com.nopaldev.artesanos.controllers.forms;
 
 import javax.validation.constraints.NotBlank;
 
-public class SellerRegisterDTO extends RegisterDTO {
-    @NotBlank
+public class CompanyRegistrationForm extends CustomerRegistrationForm {
+
+    @NotBlank(message = "Company name is required")
     private String companyName;
     // TODO: should we ask for RFC? probably not :v
 

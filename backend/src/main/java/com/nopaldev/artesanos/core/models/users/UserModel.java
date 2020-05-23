@@ -3,6 +3,8 @@ package com.nopaldev.artesanos.core.models.users;
 import com.nopaldev.artesanos.core.models.BaseModel;
 
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @MappedSuperclass
 public class UserModel extends BaseModel {
@@ -11,13 +13,27 @@ public class UserModel extends BaseModel {
 
     private String validationToken;
 
+    private Date lastTimeGeneratedToken;
+
+    @NotNull
     private String username;
 
+    @NotNull
     private String password;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private String lastName;
+
+    public Date getLastTimeGeneratedToken() {
+        return lastTimeGeneratedToken;
+    }
+
+    public void setLastTimeGeneratedToken(Date lastTimeGeneratedToken) {
+        this.lastTimeGeneratedToken = lastTimeGeneratedToken;
+    }
 
     public boolean isEnabled() {
         return enabled;

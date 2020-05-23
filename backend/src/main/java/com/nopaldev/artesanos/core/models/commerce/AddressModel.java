@@ -5,7 +5,7 @@ import com.nopaldev.artesanos.core.models.BaseModel;
 import javax.persistence.Entity;
 
 
-@Entity
+@Entity(name = "addresses")
 public class AddressModel extends BaseModel {
     // TODO: move city into a model
     private String city;

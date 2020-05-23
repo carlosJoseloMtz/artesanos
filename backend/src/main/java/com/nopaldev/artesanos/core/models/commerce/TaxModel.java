@@ -4,7 +4,7 @@ import com.nopaldev.artesanos.core.models.BaseModel;
 
 import javax.persistence.Entity;
 
-@Entity
+@Entity(name = "taxes")
 public class TaxModel extends BaseModel {
     private String code;
     private String name;

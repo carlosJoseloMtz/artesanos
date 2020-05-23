@@ -3,7 +3,7 @@ package com.nopaldev.artesanos.facades.impl;
 import com.nopaldev.artesanos.core.services.CustomerRegistrationService;
 import com.nopaldev.artesanos.core.services.dtos.UserRegistrationDTO;
 import com.nopaldev.artesanos.facades.CustomerFacade;
-import com.nopaldev.artesanos.facades.dtos.RegisterDTO;
+import com.nopaldev.artesanos.controllers.forms.CustomerRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
@@ -18,13 +18,13 @@ public class DefaultCustomerFacade implements CustomerFacade {
         this.customerRegistrationService = customerRegistrationService;
     }
 
-    protected void validateRegisterData(final RegisterDTO registerInfo) {
+    protected void validateRegisterData(final CustomerRegistrationForm registerInfo) {
         Assert.notNull(registerInfo, "Register information can not be null");
         Assert.isTrue(registerInfo.getPassword().equals(registerInfo.getRepeatedPassword()), "Passwords have to match");
     }
 
     @Override
-    public void register(@Valid final RegisterDTO registerInfo) {
+    public void register(@Valid final CustomerRegistrationForm registerInfo) {
         validateRegisterData(registerInfo);
 
         // TODO: validate password strength
@@ -32,7 +32,7 @@ public class DefaultCustomerFacade implements CustomerFacade {
         getCustomerRegistrationService().register(customer);
     }
 
-    protected UserRegistrationDTO mapRegisterInfo(final RegisterDTO registerInfo) {
+    protected UserRegistrationDTO mapRegisterInfo(final CustomerRegistrationForm registerInfo) {
         final var customer = new UserRegistrationDTO();
         customer.setName(registerInfo.getName());
         customer.setLastName(registerInfo.getLastName());

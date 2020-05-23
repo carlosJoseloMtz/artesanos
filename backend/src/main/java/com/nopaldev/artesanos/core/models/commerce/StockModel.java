@@ -5,7 +5,7 @@ import com.nopaldev.artesanos.core.models.BaseModel;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity(name = "stocks")
 public class StockModel extends BaseModel {
     private long quantity;
     @OneToOne

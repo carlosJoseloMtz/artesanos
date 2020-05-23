@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import java.util.List;
 
-@Entity
+@Entity(name = "categories")
 public class CategoryModel extends BaseModel {
     private String code;
     private String name;

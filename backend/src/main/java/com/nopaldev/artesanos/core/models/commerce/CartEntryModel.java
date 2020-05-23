@@ -3,7 +3,7 @@ package com.nopaldev.artesanos.core.models.commerce;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-@Entity
+@Entity(name = "cart_entries")
 public class CartEntryModel extends AbstractEntryModel {
     @ManyToOne
     private CartModel cart;

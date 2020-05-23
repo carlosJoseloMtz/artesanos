@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
 
-@Entity
+@Entity(name = "orders")
 public class OrderModel extends AbstractOrderModel {
     @OneToMany
     private List<OrderModel> entries;

@@ -4,7 +4,7 @@ import com.nopaldev.artesanos.core.models.BaseModel;
 
 import javax.persistence.Entity;
 
-@Entity
+@Entity(name = "images")
 public class ImageModel extends BaseModel {
     private String resource;
     private String baseUrl;

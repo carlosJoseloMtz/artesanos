@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
 
-@Entity
+@Entity(name = "carts")
 public class CartModel extends AbstractOrderModel {
     @OneToMany
     private List<CartEntryModel> entries;

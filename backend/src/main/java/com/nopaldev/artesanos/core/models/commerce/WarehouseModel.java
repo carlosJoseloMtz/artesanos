@@ -4,10 +4,14 @@ import com.nopaldev.artesanos.core.models.BaseModel;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "warehouses")
 public class WarehouseModel extends BaseModel {
+
+    @NotNull
     private String code;
+
     @OneToOne
     private AddressModel addressModel;
 

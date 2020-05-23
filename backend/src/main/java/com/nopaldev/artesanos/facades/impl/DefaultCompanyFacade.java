@@ -1,43 +1,49 @@
 package com.nopaldev.artesanos.facades.impl;
 
-import com.nopaldev.artesanos.core.services.CustomerRegistrationService;
+import com.nopaldev.artesanos.core.services.CompanyRegistrationService;
 import com.nopaldev.artesanos.core.services.dtos.CompanyRegistrationDTO;
-import com.nopaldev.artesanos.core.services.dtos.UserRegistrationDTO;
 import com.nopaldev.artesanos.facades.CompanyFacade;
-import com.nopaldev.artesanos.facades.dtos.RegisterDTO;
-import com.nopaldev.artesanos.facades.dtos.SellerRegisterDTO;
+import com.nopaldev.artesanos.controllers.forms.CompanyRegistrationForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 
 @Component("companyFacade")
-public class DefaultCompanyFacade extends DefaultCustomerFacade implements CompanyFacade {
+public class DefaultCompanyFacade implements CompanyFacade {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultCompanyFacade.class);
 
+    private final CompanyRegistrationService companyRegistrationService;
+
     @Autowired
-    public DefaultCompanyFacade(final CustomerRegistrationService companyRegistrationService) {
-        super(companyRegistrationService);
+    public DefaultCompanyFacade(final CompanyRegistrationService companyRegistrationService) {
+        this.companyRegistrationService = companyRegistrationService;
     }
 
+    /**
+     * @see CompanyFacade#registerCompany(CompanyRegistrationForm).
+     */
     @Override
-    protected UserRegistrationDTO mapRegisterInfo(final RegisterDTO registerInfo) {
+    public void registerCompany(final CompanyRegistrationForm registrationForm) {
+        Assert.notNull(registrationForm, "Form can not be null");
+        final var dto = mapToDto(registrationForm);
+        getCompanyRegistrationService().register(dto);
+    }
 
-        if (registerInfo instanceof SellerRegisterDTO) {
-            final var registerCompany = (SellerRegisterDTO) registerInfo;
-            LOG.info("Registering company with name [{}]", registerCompany.getCompanyName());
-            final var company = new CompanyRegistrationDTO();
-            company.setCompanyName(registerCompany.getCompanyName());
-            company.setName(registerCompany.getName());
-            company.setPassword(registerCompany.getPassword());
-            company.setLastName(registerCompany.getLastName());
-            return company;
-        }
+    protected CompanyRegistrationDTO mapToDto(final CompanyRegistrationForm registrationForm) {
+        final var dto = new CompanyRegistrationDTO();
+        dto.setPassword(registrationForm.getPassword());
+        dto.setName(registrationForm.getName());
+        dto.setLastName(registrationForm.getLastName());
+        dto.setCompanyName(registrationForm.getCompanyName());
+        dto.setEmail(registrationForm.getEmail());
+        return dto;
+    }
 
-        LOG.warn("Using company facade for registering a customer instead of a company");
-
-        return super.mapRegisterInfo(registerInfo);
+    public CompanyRegistrationService getCompanyRegistrationService() {
+        return companyRegistrationService;
     }
 }

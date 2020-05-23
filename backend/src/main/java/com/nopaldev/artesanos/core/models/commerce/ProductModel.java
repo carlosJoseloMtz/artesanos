@@ -6,7 +6,7 @@ import com.nopaldev.artesanos.core.models.users.CraftsmanModel;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "products")
 public class ProductModel extends BaseModel {
     @Column(unique = true)
     private String code;

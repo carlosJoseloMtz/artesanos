@@ -1,20 +1,20 @@
-package com.nopaldev.artesanos.facades.dtos;
+package com.nopaldev.artesanos.controllers.forms;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class RegisterDTO {
-    @NotBlank
+public class CustomerRegistrationForm {
+    @NotBlank(message = "Email is required")
     private String email;
-    @NotBlank
+    @NotBlank(message = "Name is required")
     private String name;
-    @NotBlank
+    @NotBlank(message = "Last name is required")
     private String lastName;
-    @NotBlank
-    @Size(min = 8)
+    @NotBlank(message = "Password is required")
+    @Size(min = 8, message = "Minimum password length is 8 characters")
     private String password;
-    @NotBlank
-    @Size(min = 8)
+    @NotBlank(message = "You have to validate your password")
+    @Size(min = 8, message = "Minimum password length is 8 characters")
     private String repeatedPassword;
 
     public String getEmail() {

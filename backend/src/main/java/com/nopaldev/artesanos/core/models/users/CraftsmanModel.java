@@ -1,9 +1,12 @@
 package com.nopaldev.artesanos.core.models.users;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "companies")
 public class CraftsmanModel extends UserModel {
+
+    @NotNull
     private String companyName;
 
     public String getCompanyName() {
