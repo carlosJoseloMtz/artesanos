@@ -7,18 +7,21 @@
     <NopalButton text="Soy artesano" />
     <br />
     <NopalInput :attributes="nopalinput_attr" />
+    <NopalGallery :images="images_attr"/>
   </div>
 </template>
 
 <script>
 import NopalButton from '../components/NopalButton.vue'
 import NopalInput from '../components/NopalInput.vue'
+import NopalGallery from '../components/NopalGallery.vue'
 
 export default {
   name: 'HomePage',
   components: {
     NopalButton,
-    NopalInput
+    NopalInput,
+    NopalGallery
   },
   data () {
     return {
@@ -27,7 +30,13 @@ export default {
         placeholder: 'Perenganito Perez Gomez',
         label: 'Nombre artesano',
         type: 'number'
-      }
+      },
+      images_attr:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkxdVYdqrPbQXHhdHZf1oq6eQjBGKD_7hTTQ8v1pEldffN5slt&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkxdVYdqrPbQXHhdHZf1oq6eQjBGKD_7hTTQ8v1pEldffN5slt&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkxdVYdqrPbQXHhdHZf1oq6eQjBGKD_7hTTQ8v1pEldffN5slt&s"
+      ]
+
     }
   }
 }
