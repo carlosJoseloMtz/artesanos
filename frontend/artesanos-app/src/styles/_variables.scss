@@ -1,7 +1,14 @@
 
 // theme colors
-$primary-color: blue !default;
-$secundary-color: darkgray !default;
+$primary-color: #6121ab !default;
+$secundary-color: #fc52b0 !default;
+$primary-light-color: #58e2e6 !default;
+$secundary-light-color: #fdc60d !default;
+$disabled-light-color: lightgray !default;
+$disabled-dark-color: gray !default;
 $primary-text-color:white !default;
 $primary-color-accentuated: rgb(10, 10, 123) !default;
+$primary-shadow-color:rgba(186,186,186,1);
 // borders
+$background-rgb-button: rgb(2,0,36);
+$background-gradient-button: linear-gradient(129deg, rgba(2,0,36,1) 66%, rgba(0,212,255,0) 66%);

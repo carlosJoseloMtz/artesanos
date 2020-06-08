@@ -1,12 +1,13 @@
 <template>
-  <button>{{text}}</button>
+  <button :class="colorclass">{{text}}</button>
 </template>
 
 <script>
 export default {
   name: 'NopalButton',
   props: {
-    text: String
+    text: String,
+    colorclass: String
   }
 }
 </script>
@@ -34,10 +35,31 @@ export default {
     transition: $args;
   }
 
+  @mixin background_color($color1,$color2){
+    background: $color1;
+    background: -moz-linear-gradient(-45deg, $color1 58%, $color1 58%, $color2 58%);
+    background: -webkit-gradient(left top, right bottom, color-stop(58%, $color1), color-stop(58%, $color1), color-stop(58%, $color2));
+    background: -webkit-linear-gradient(-45deg, $color1 58%, $color1 58%, $color2 58%);
+    background: -o-linear-gradient(-45deg, $color1 58%, $color1 58%, $color2 58%);
+    background: -ms-linear-gradient(-45deg, $color1 58%, $color1 58%, $color2 58%);
+    background: linear-gradient(135deg, $color1 58%, $color1 58%, $color2 58%);
+  }
+.primary{
+    @include background_color($primary-color,$disabled-light-color);
+  }
+  .secundary{
+    @include background_color($secundary-color,$disabled-light-color);
+  }
+  .primary-light{
+    @include background_color($primary-light-color,$disabled-light-color);
+  }
+  .secundary-light{
+    @include background_color($secundary-light-color,$disabled-light-color);
+  }
 button {
   @include pushed_transition(background-color 0.4s ease);
   @include avoid_textselection(none);
-  background-color: $primary-color;
+
   border: none;
   border-radius: 4.5px;
   width: 100%;
@@ -54,6 +76,9 @@ button {
   }
   &:hover{
     cursor:pointer;
+    -webkit-box-shadow: 0px 5px 0px -1px $primary-shadow-color;
+    -moz-box-shadow: 0px 5px 0px -1px $primary-shadow-color;
+    box-shadow: 0px 5px 0px -1px $primary-shadow-color;
   }
 }
 </style>
