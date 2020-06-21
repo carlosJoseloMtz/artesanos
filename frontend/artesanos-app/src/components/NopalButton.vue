@@ -1,13 +1,13 @@
 <template>
-  <button :class="colorclass">{{text}}</button>
+  <button :class="type">{{text}}</button>
 </template>
 
 <script>
 export default {
-  name: 'NopalButton',
+  name: 'nopal-button',
   props: {
     text: String,
-    colorclass: String
+    type: String
   }
 }
 </script>
