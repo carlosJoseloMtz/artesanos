@@ -15,6 +15,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../styles/_variables.scss';
+/* TODO: remove dependency for material icons and all usages */
 @import 'material-icons/css/material-icons.scss';
 
 @mixin avoid_textselection($args...) {
@@ -61,7 +62,8 @@ button {
   @include avoid_textselection(none);
 
   border: none;
-  border-radius: 4.5px;
+  /* TODO: actually find and set the proper radius */
+  border-radius: 15px;
   width: 100%;
   padding: 1em;
   color:$primary-text-color;
